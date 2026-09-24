@@ -470,7 +470,6 @@ test_wrapper_via_relative_symlink() {
     cwd_before=$(pwd)
     cd "$TEST_TMPDIR"
     version_output=$("$link_dir/devcontainer" --version 2>/dev/null) && wrc=0 || wrc=$?
-    
     cd "$cwd_before"
     assert_exit_code "0" "$wrc" "relative symlink works from different directory"
     assert_contains "$version_output" "$cli_version" "relative symlink wrapper reports version"
